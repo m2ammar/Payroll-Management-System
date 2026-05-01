@@ -36,6 +36,18 @@ public abstract class Employee  implements IPayable, ISalaryCalc{
         this.deductions= new ArrayList<>();
     }
 
+
+    @Override
+    public double computeNetSalary() {
+        double gross = calculateSalary();
+        double totalDeductions = 0;
+        for (Deduction d : deductions) {
+            totalDeductions += d.getDeduction();
+        }
+        return gross - totalDeductions;
+    }
+
+
     public abstract double calculateSalary();
 
     public int getEmployeeId(){
