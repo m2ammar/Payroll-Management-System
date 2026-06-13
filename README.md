@@ -7,6 +7,28 @@ A desktop payroll management application built with **Java**, **JavaFX**, and **
 
 ---
 
+## Screenshots
+
+### Login Screen
+![Login](PayrollManagement.png)
+
+### Super Admin Dashboard
+![Super Admin](Superadmin.png)
+
+### Leave Request Management
+![Leave Requests](SuperAdminLeaverequest.png)
+
+### Payroll History
+![Payroll History](SuperAdminPayrollHistory.png)
+
+### Employee Portal — Full Report
+![Employee Report](EmployeePreCalculate.png)
+
+### Employee Salary Calculator
+![Salary Calculator](EmployeeSalary.png)
+
+---
+
 ## Business Problem
 
 Manual payroll processing is error-prone and time-consuming. This system automates salary calculation across different employment types, manages leave requests through an approval workflow, and enforces a strict role hierarchy — so only authorized personnel can perform sensitive actions.
