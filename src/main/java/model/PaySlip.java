@@ -10,6 +10,8 @@ public class PaySlip {
     //YearMonth is from java.time — same package as LocalDate, represents just a month and year like 2026-05.
     private double grossSalary;
     private double netSalary;
+    //“The PaySlip class represents the final salary record of an employee for a specific month.
+    // It stores both gross and net salary and can regenerate values by pulling updated calculations from the Employee object.”
 
     public PaySlip(String paySlipId,Employee employee ,YearMonth month, double grossSalary,double netSalary){
 

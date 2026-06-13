@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.LoginController"
+            prefWidth="480" prefHeight="500"
+            style="-fx-background-color: #11111b;">
+
+    <top>
+        <Region prefHeight="4"
+                style="-fx-background-color: linear-gradient(to right, #cba6f7, #89b4fa, #a6e3a1);"/>
+    </top>
+
+    <center>
+        <VBox spacing="0" alignment="CENTER">
+            <padding><Insets top="40" bottom="40" left="60" right="60"/></padding>
+
+            <Label text="⬡"
+                   style="-fx-text-fill: #cba6f7; -fx-font-size: 30px; -fx-padding: 0 0 8 0;"/>
+            <Label text="PayrollOS"
+                   style="-fx-text-fill: #cdd6f4; -fx-font-size: 22px; -fx-font-weight: bold; -fx-font-family: 'Courier New';"/>
+            <Label fx:id="roleHintLabel" text="Signing in"
+                   style="-fx-text-fill: #89b4fa; -fx-font-size: 12px; -fx-padding: 4 0 28 0;"/>
+
+            <!-- Username -->
+            <Label text="Username"
+                   style="-fx-text-fill: #a6adc8; -fx-font-size: 12px; -fx-padding: 0 0 4 2;"/>
+            <TextField fx:id="usernameField"
+                       style="-fx-background-color: #1e1e2e; -fx-text-fill: #cdd6f4;
+                              -fx-prompt-text-fill: #585b70;
+                              -fx-border-color: #313244; -fx-border-radius: 8;
+                              -fx-background-radius: 8; -fx-padding: 10 12; -fx-font-size: 13px;"
+                       maxWidth="Infinity"/>
+
+            <Region prefHeight="12"/>
+
+            <!-- Password -->
+            <Label text="Password"
+                   style="-fx-text-fill: #a6adc8; -fx-font-size: 12px; -fx-padding: 0 0 4 2;"/>
+            <PasswordField fx:id="passwordField"
+                           style="-fx-background-color: #1e1e2e; -fx-text-fill: #cdd6f4;
+                                  -fx-prompt-text-fill: #585b70;
+                                  -fx-border-color: #313244; -fx-border-radius: 8;
+                                  -fx-background-radius: 8; -fx-padding: 10 12; -fx-font-size: 13px;"
+                           maxWidth="Infinity"/>
+
+            <Label fx:id="errorLabel" text=""
+                   style="-fx-text-fill: #f38ba8; -fx-font-size: 12px; -fx-padding: 10 0 0 0;"/>
+
+            <Region prefHeight="18"/>
+
+            <!-- Login button -->
+            <Button text="Sign In →" onAction="#handleLogin"
+                    maxWidth="Infinity" prefHeight="44"
+                    style="-fx-background-color: #cba6f7; -fx-text-fill: #1e1e2e;
+                           -fx-font-weight: bold; -fx-font-size: 14px;
+                           -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Region prefHeight="12"/>
+
+            <!-- Back -->
+            <Button text="← Back" onAction="#goBack"
+                    maxWidth="Infinity" prefHeight="36"
+                    style="-fx-background-color: transparent; -fx-text-fill: #585b70;
+                           -fx-font-size: 12px; -fx-cursor: hand; -fx-border-width: 0;"/>
+        </VBox>
+    </center>
+</BorderPane>

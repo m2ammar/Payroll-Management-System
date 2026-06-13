@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.SubAdminController"
+            prefWidth="860" prefHeight="580"
+            style="-fx-background-color: #1e1e2e;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-background-color: #181825; -fx-padding: 14;">
+            <Label text="📋 Sub Admin Panel"
+                   style="-fx-text-fill: #89dceb; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e;
+                           -fx-font-weight: bold; -fx-background-radius: 6;
+                           -fx-padding: 6 14; -fx-cursor: hand;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="4" prefWidth="175"
+              style="-fx-background-color: #181825; -fx-padding: 14;">
+
+            <Label text="PAYROLL"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 6 0 2 4;"/>
+            <Button text="Payroll Report"    onAction="#showPayrollReport"    maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+            <Button text="Salary Stats"      onAction="#showSalaryStats"      maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+            <Button text="Payslip History"   onAction="#showPayslipHistory"   maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="LEAVE"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="Leave Requests"    onAction="#showLeaveRequests"    maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="REPORTS"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="Attendance Report" onAction="#showAttendanceReport" maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+            <Button text="Dept Payroll"      onAction="#showDeptPayroll"      maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #1e1e2e; -fx-padding: 20;">
+            <Label text="Select an option from the left."
+                   style="-fx-text-fill: #585b70; -fx-font-size: 14px;"/>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -7,11 +7,11 @@ public class PartTimeEmployee extends Employee{
     private double hourlyRate;
     private int hoursWorked;
 
+    // removed int employeeId from params
+    public PartTimeEmployee(String name, int age, String department,
+                            double baseSalary, EmployeeRole role, double hourlyRate , int hoursWorked){
 
-    public PartTimeEmployee(int employeeId, String name, int age, String department,
-                            double baseSalary, EmployeeRole role, double hourlyRate ,int hoursWorked){
-
-        super(employeeId, name, age, department, baseSalary, role);
+        super(name, age, department, baseSalary, role); //  no more employeeId
 
         if(hourlyRate>0) {
             this.hourlyRate = hourlyRate;
@@ -24,6 +24,9 @@ public class PartTimeEmployee extends Employee{
             throw new IllegalArgumentException("Worked hour can't be negative");
         }
     }
+
+    //"Each employee type has a different salary calculation strategy,
+    // so I used method overriding to implement polymorphic salary behavior."
 
     @Override
     public double calculateSalary() {

@@ -2,6 +2,7 @@ package model;
 
 import enums.AllowanceType;
 
+
 public class Allowance {
 
     private AllowanceType allowanceType;

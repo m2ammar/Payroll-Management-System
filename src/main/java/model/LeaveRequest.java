@@ -22,6 +22,10 @@ public class LeaveRequest {
 
     }
 
+    //“The LeaveRequest class represents a leave application made by an employee.
+    // It stores details such as start date, end date, and status.
+    // It also provides helper methods to calculate remaining
+    // days and check if the leave period is nearing completion.”
     public void setLeaveStatus(LeaveStatus leaveStatus){
         this.leaveStatus=leaveStatus;
     }

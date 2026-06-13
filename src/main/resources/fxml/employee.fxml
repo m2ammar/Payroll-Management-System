@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.EmployeeController"
+            prefWidth="780" prefHeight="540"
+            style="-fx-background-color: #1e1e2e;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-background-color: #181825; -fx-padding: 14;">
+            <Label text="👤 Employee Portal"
+                   style="-fx-text-fill: #89b4fa; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel"
+                   style="-fx-text-fill: #a6adc8; -fx-font-size: 13px;"/>
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e;
+                           -fx-font-weight: bold; -fx-background-radius: 6;
+                           -fx-padding: 6 14; -fx-cursor: hand;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="4" prefWidth="165"
+              style="-fx-background-color: #181825; -fx-padding: 14;">
+
+            <Label text="PAYROLL"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 6 0 2 4;"/>
+            <Button text="My Payslip"      onAction="#showPayslip"      maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="ATTENDANCE"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="My Attendance"   onAction="#showAttendance"   maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="LEAVE"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="Request Leave"   onAction="#showLeaveForm"    maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+            <Button text="My Leave History" onAction="#showLeaveHistory" maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="REPORTS"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="My Report"       onAction="#showMyReport"     maxWidth="Infinity"
+                    style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4;
+                           -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+
+            <Label text="TOOLS"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 10px; -fx-padding: 10 0 2 4;"/>
+            <Button text="💰 Salary Calculator" onAction="#showSalaryCalculator" maxWidth="Infinity"
+                    style="-fx-background-color: #cba6f7; -fx-text-fill: #1e1e2e;
+               -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+            <Button text="📄 Generate Report" onAction="#generateReport" maxWidth="Infinity"
+                    style="-fx-background-color: #a6e3a1; -fx-text-fill: #1e1e2e;
+               -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 9 18; -fx-cursor: hand;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: #1e1e2e; -fx-padding: 20;">
+            <Label text="Select an option from the left."
+                   style="-fx-text-fill: #585b70; -fx-font-size: 14px;"/>
+        </StackPane>
+    </center>
+</BorderPane>

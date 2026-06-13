@@ -6,11 +6,15 @@ public class FullTimeEmployee extends Employee{
 
     private double allowances;
     private int overtimeHrs;
+    //Deductions are handled in the parent class to ensure
+    // a single unified net salary calculation logic for all
+    // employee types, while allowing each type to define its own gross salary."
 
-    public FullTimeEmployee(int employeeId, String name, int age, String department, double baseSalary,
+
+    public FullTimeEmployee(String name, int age, String department, double baseSalary,
                             EmployeeRole role, double allowances, int overtimeHrs){
 
-        super(employeeId, name, age, department, baseSalary, role);
+        super(name, age, department, baseSalary, role);
         if(allowances>=0) {
             this.allowances = allowances;
         }else {

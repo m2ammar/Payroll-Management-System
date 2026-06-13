@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.RoleSelectController"
+            prefWidth="480" prefHeight="500"
+            style="-fx-background-color: #11111b;">
+
+    <!-- Subtle top accent bar -->
+    <top>
+        <Region prefHeight="4"
+                style="-fx-background-color: linear-gradient(to right, #cba6f7, #89b4fa, #a6e3a1);"/>
+    </top>
+
+    <center>
+        <VBox spacing="0" alignment="CENTER"
+              style="-fx-background-color: #11111b;">
+            <padding><Insets top="50" bottom="50" left="60" right="60"/></padding>
+
+            <!-- Logo / Brand -->
+            <Label text="⬡"
+                   style="-fx-text-fill: #cba6f7; -fx-font-size: 36px; -fx-padding: 0 0 10 0;"/>
+            <Label text="PayrollOS"
+                   style="-fx-text-fill: #cdd6f4; -fx-font-size: 26px; -fx-font-weight: bold; -fx-font-family: 'Courier New';"/>
+            <Label text="Payroll Management System"
+                   style="-fx-text-fill: #585b70; -fx-font-size: 11px; -fx-padding: 2 0 32 0;"/>
+
+            <Label text="Sign in as"
+                   style="-fx-text-fill: #a6adc8; -fx-font-size: 13px; -fx-padding: 0 0 16 0;"/>
+
+            <VBox spacing="12" alignment="CENTER">
+
+                <!-- Admin card -->
+                <Button text="🛡   Admin" onAction="#selectAdmin"
+                        maxWidth="Infinity" prefHeight="62"
+                        style="-fx-background-color: #1e1e2e; -fx-text-fill: #cba6f7;
+                               -fx-font-weight: bold; -fx-font-size: 15px;
+                               -fx-background-radius: 10;
+                               -fx-border-color: #313244; -fx-border-radius: 10;
+                               -fx-border-width: 1.5; -fx-cursor: hand;"/>
+
+                <!-- Employee card -->
+                <Button text="👤   Employee" onAction="#selectEmployee"
+                        maxWidth="Infinity" prefHeight="62"
+                        style="-fx-background-color: #1e1e2e; -fx-text-fill: #89b4fa;
+                               -fx-font-weight: bold; -fx-font-size: 15px;
+                               -fx-background-radius: 10;
+                               -fx-border-color: #313244; -fx-border-radius: 10;
+                               -fx-border-width: 1.5; -fx-cursor: hand;"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" text=""
+                   style="-fx-text-fill: #f38ba8; -fx-font-size: 12px; -fx-padding: 16 0 0 0;"/>
+
+            <!-- Version tag -->
+            <Label text="v1.0 · KSBL"
+                   style="-fx-text-fill: #313244; -fx-font-size: 10px; -fx-padding: 30 0 0 0;"/>
+        </VBox>
+    </center>
+</BorderPane>

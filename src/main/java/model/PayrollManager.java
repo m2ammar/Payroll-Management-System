@@ -8,8 +8,11 @@ public class PayrollManager {
     private int nextPayslipId=1;
     private ArrayList<PaySlip> payrollHistory;
     private YearMonth month;
+    private List<Employee> employees;
+    //“I used Map because it allows me to store key-value pairs, which is ideal for grouping
+    //and representing related data such as department-wise salary totals and overall payroll statistics.”
 
-    public PayrollManager(YearMonth month){
+    public PayrollManager(YearMonth month, List<Employee> employees){
 
         this.payrollHistory = new ArrayList<>();
         if(month == null){
@@ -17,9 +20,10 @@ public class PayrollManager {
         }else{
             this.month=month;
         }
+        this.employees = employees;
     }
 
-    public void processMonthly(List<Employee> employees){
+    public void processMonthly(){
 
         for(Employee employee : employees){
             double gross =  employee.calculateSalary();
@@ -27,10 +31,16 @@ public class PayrollManager {
             String id = "PS-" + month + "-" + (nextPayslipId++);
             PaySlip slip = new PaySlip(id, employee, month, gross, net);
             payrollHistory.add(slip);
-            //Loop through payrollHistory. For each payslip,
-            // check if its ID matches the ID we're looking for. If yes, return that payslip.
-            // If loop ends with no match, return null.
         }
+    }
+
+    public PaySlip getPayslipByEmployee(Employee employee, YearMonth targetMonth) {
+        for (PaySlip p : payrollHistory) {
+            if (p.getEmployee().equals(employee) && p.getMonth().equals(targetMonth)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     public PaySlip getPayslipById(String payslipId) {
@@ -45,17 +55,12 @@ public class PayrollManager {
 
     public Map<String , Double > getTotalPaidByDept(){
 
-        //A map stores pairs — every key has a value. Here result is storing department name paired with its total salary.
         Map<String, Double> result = new LinkedHashMap<>();
         for (PaySlip p : payrollHistory) {
             String dept= p.getEmployee().getDepartment();
             double net= p.getNetSalary();
             result.merge(dept, net, Double::sum);
         }return result;
-        //So if Engineering already has 80000 and you hit another Engineering employee with 40000,
-        // it becomes 120000. That's the Double::sum part — it tells merge how to combine the old and new value.
-        //Department lives inside the Employee object, not the payslip.
-        //So you have to go through the employee first — p.getEmployee().getDepartment(). but salary lives in payslip
     }
 
     public Map<String , Double> getOverallSalaryStats(){
@@ -77,8 +82,8 @@ public class PayrollManager {
                 }
             }avg= total/payrollHistory.size();
             result.put("total", total);
-            result.put("high", high);
-            result.put("low", low);
+            result.put("highest", high);
+            result.put("lowest", low);
             result.put("average", avg);
         }return result;
     }
@@ -89,5 +94,9 @@ public class PayrollManager {
 
     public YearMonth getMonth(){
         return this.month;
+    }
+
+    public List<Employee> getEmployees(){
+        return this.employees;
     }
 }

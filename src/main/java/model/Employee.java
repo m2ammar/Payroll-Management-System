@@ -3,12 +3,14 @@ package model;
 import interfaces.IPayable;
 import interfaces.ISalaryCalc;
 import enums.EmployeeRole;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
 public abstract class Employee  implements IPayable, ISalaryCalc{
+
+
+    private static int idCounter = 1;
 
     private int employeeId;
     private String name;
@@ -21,10 +23,20 @@ public abstract class Employee  implements IPayable, ISalaryCalc{
     private List<LeaveRequest> leaveRequests;  //aggregation
     private List<Allowance> allowances;  //composition
     private List<Deduction> deductions;  //composition
+    //Composition
+    //Allowance/Deduction strongly belong to Employee.
+    //If employee is deleted:
+    //these payroll components lose meaning too
+    //Aggregation
+    //AttendanceRecord and LeaveRequest can exist more independently as records/history.
+    //Even if your sir challenges this distinction, the important thing is:
+    //YOU THOUGHT ABOUT DESIGN RELATIONSHIPS.
+    //That already separates you from students who randomly code.
 
-    public Employee(int employeeId, String name, int age, String department, double baseSalary, EmployeeRole role){
 
-        this.employeeId=employeeId;
+    public Employee(String name, int age, String department, double baseSalary, EmployeeRole role){
+
+        this.employeeId = idCounter++;
         this.name=name;
         this.age=age;
         this.department=department;
@@ -45,6 +57,13 @@ public abstract class Employee  implements IPayable, ISalaryCalc{
             totalDeductions += d.getDeduction();
         }
         return gross - totalDeductions;
+    }
+
+    //called by DataStore after loading — prevents ID collision across sessions
+    public static void syncIdCounter(int nextId) {
+        if (nextId > idCounter) {
+            idCounter = nextId;
+        }
     }
 
 
@@ -84,7 +103,7 @@ public abstract class Employee  implements IPayable, ISalaryCalc{
 
     public List<Allowance> getAllowances(){
         return Collections.unmodifiableList(allowances); //direct return of list will make it easy for everyone to modify it
-                                                        // thus return it as an unmodifiable
+        // thus return it as an unmodifiable
     }
 
     public List<Deduction> getDeductions(){

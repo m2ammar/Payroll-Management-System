@@ -4,22 +4,24 @@ import enums.AttendanceStatus;
 
 import java.time.LocalDate;
 
+
+//can also be used to store the current date automatically
 public class AttendanceRecord {
 
-    private int hourWorked;
+    private double hourWorked;
     private AttendanceStatus attendanceStatus;
     private LocalDate date;
 
-    public AttendanceRecord(int hourWorked, AttendanceStatus attendanceStatus, LocalDate date){
+    public AttendanceRecord(double hourWorked, AttendanceStatus attendanceStatus, LocalDate date){
         this.hourWorked=hourWorked;
         this.attendanceStatus=attendanceStatus;
         this.date=date;
     }
 
-    public int getHourWorked(){
+    public double getHourWorked(){
         return this.hourWorked;
     }
-    public void setHourWorked(int hourWorked){
+    public void setHourWorked(double hourWorked){
         this.hourWorked=hourWorked;
     }
 
