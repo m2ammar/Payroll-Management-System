@@ -44,3 +44,5 @@ pom.xml
 .DS_Store
 .idea/
 *.zip
+out/
+target/
